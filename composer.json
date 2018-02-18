@@ -1,0 +1,44 @@
+{
+  "name": "mbischof/yii2-app-hyde",
+  "description": "Yii 2 Minimal Project Template",
+  "keywords": ["yii2", "framework", "basic", "project template", "hyde"],
+  "homepage": "https://github.com/mbischof/yii2-app-hyde",
+  "type": "project",
+  "license": "BSD-3-Clause",
+
+  "require": {
+    "yiisoft/yii2": "2.0.13.1"
+  },
+
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "yii\\composer\\Installer::postInstall"
+    ]
+  },
+
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "web/assets": "0777"
+        }
+      ]
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "generateCookieValidationKey": [
+        "config.php"
+      ]
+    }
+  },
+
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
